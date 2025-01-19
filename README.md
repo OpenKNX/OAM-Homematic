@@ -1,8 +1,15 @@
 # OpenKNX Homematic-Gateway 
 
-KNX-Anbindung für Homematic-Thermostate
+KNX-Anbindung für Homematic-Thermostate über CCU(2) mit Konfiguration über die ETS.
 
 Von Cornelius Köpp 2024-2025
+
+
+# Beschreibung
+
+Das Gateway ermöglicht einen rudimentären lesenden und schreibenden Zugriff auf ausgewählte Homematic-Geräte (Funkschnittstelle),
+über eine Zentrale mit XML-RPC-Schnittstelle wie z.B. der Homematic CCU2.
+Weitere Module sind zur funktionalen Ergänzung erhalten, z.B. zur Aggregation von Ist- und Status-Werten.
 
 
 > ## Achtung ALPHA-STATUS!
@@ -22,7 +29,7 @@ Von Cornelius Köpp 2024-2025
 > Inkompatible Änderungen können ohne Vorankündigung erfolgen
 
 
-# Inhalte
+## Funktionen / Module
  
 | OpenKNX-Modul                                                                     | Beschreibung                                                                                                     |
 |-----------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------|
