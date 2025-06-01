@@ -5,6 +5,23 @@ KNX-Anbindung für Homematic-Thermostate
 Von Cornelius Köpp 2024-2025
 
 
+> ## Achtung ALPHA-STATUS!
+>
+> **Ein produktiver Einsatz wird zum aktuellen Zeitpunkt *nicht* empfohlen**!
+>
+> Der vorliegende Stand dient zur technischen Evaluation.
+> Mehrere der enthaltenen Module mit Netzwerkzugriff nutzen blockierende HTTP(S)-Requests
+> und können bzw. werden durch die auftretenden Verzögerungen die Bus-Kommunikation 
+> und die Verarbeitung in anderen Modulen stören.
+> Mögliche Folgen sind eine fehlende Reaktion auf Telegramme, fehlendes Update von KOs, unerwartetes Zeitverhalten, 
+> sowie ggf. weitere nicht aufgeführte Effekte.
+> Die Steuerung und Wertabruf der Homematic-Thermostate sind grundsätzlich möglich, 
+> Logikkanäle und Funktionsblöcke sollten jedoch ausschließlich ohne externe Abhängigkeiten
+> und Zeitabhängigem Verhalten eingesetzt werden.     
+>
+> Inkompatible Änderungen können ohne Vorankündigung erfolgen
+
+
 # Inhalte
  
 | OpenKNX-Modul                                                                     | Beschreibung                                                                                                     |
@@ -14,6 +31,15 @@ Von Cornelius Köpp 2024-2025
 | [OFM-InternetWeatherModule](https://github.com/OpenKNX/OFM-InternetWeatherModule) | **Internet Wetter:** Bereitstellung von Wetterdaten aus dem Internet                                             |
 | [OFM-LogicModule](https://github.com/OpenKNX/OFM-LogicModule)                     | **Logiken:** Flexible Universallogiken und Zeitschaltuhren mit Feiertagsberechnung                               |
 | [OFM-FunctionBlocks](https://github.com/OpenKNX/OFM-FunctionBlocks)               | **Funktionsblöcke:** Vordefinierte Funktionsbausteine, u.A. zur Aggregation mehrerer Werte                       |
+
+
+# Test-Status
+
+| Architektur / Hardware                                                        | Status     | Anmerkung |
+|-------------------------------------------------------------------------------|------------|-----------|
+| RP2040 / [OpenKNX Reg1-ETH](https://github.com/OpenKNX/OpenKNX/wiki/REG1-Eth) | Alpha      |           |
+| ESP32                                                                         | ungetestet |           |
+
 
 # Fremdbibliotheken
 
