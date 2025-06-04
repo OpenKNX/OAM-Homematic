@@ -32,6 +32,9 @@ if (!$?) { exit 1 }
 lib/OGM-Common/scripts/setup/reusable/Build-Step.ps1 release_REG1_ETH_V1 firmware-REG1_ETH_V1 uf2
 if (!$?) { exit 1 }
 
+# Quick-Fix: Remove unwanted files from release folder:
+Remove-Item -Path "release/data/Upload-Firmware-Generic-SAMD.ps1" -ErrorAction SilentlyContinue -Force
+
 # execute generic post-build steps
 ../OGM-Common/scripts/setup/reusable/Build-Release-Postprocess.ps1 $args[0]
 if (!$?) { exit 1 }

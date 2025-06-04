@@ -1,10 +1,10 @@
 {
 	"folders": [
 		{
-			"path": "../OFM-Homematic"
+			"path": "."
 		},
 		{
-			"path": "."
+			"path": "../OFM-Homematic"
 		},
 		{
 			"path": "../OFM-FunctionBlocks"

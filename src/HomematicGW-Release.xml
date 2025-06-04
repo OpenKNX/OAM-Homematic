@@ -8,8 +8,8 @@
   <op:ETS
           OpenKnxId="0xAC"
           ApplicationNumber="0x50"
-          ApplicationVersion="0.1"
-          ReplacesVersions="0.0"
+          ApplicationVersion="0.2"
+          ReplacesVersions="0.1 0.0"
           ApplicationRevision="0"
           ProductName="Homematic GW"
           BusCurrent="30"
@@ -32,7 +32,7 @@
              template="../lib/OFM-Homematic/src/HomematicModule.templ.xml"
              NumChannels="32"
              KoSingleOffset="20"
-             KoOffset="100">
+             KoOffset="60">
     <op:verify File="../lib/OFM-Homematic/library.json" ModuleVersion="%HMG_VerifyVersion%" />
   </op:define>
   <!-- 32x12 = 384 KOs-->
@@ -40,9 +40,9 @@
   <op:define prefix="IW" ModuleType="21"
              share=   "../lib/OFM-InternetWeatherModule/src/InternetWeatherModule.share.xml"
              template="../lib/OFM-InternetWeatherModule/src/InternetWeatherModule.templ.xml"
-             NumChannels="4"
-             KoSingleOffset="500"
-             KoOffset="510">
+             NumChannels="3"
+             KoSingleOffset="800"
+             KoOffset="810">
     <op:verify File="../lib/OFM-InternetWeatherModule/library.json" ModuleVersion="%IW_VerifyVersion%" />
   </op:define>
   <!-- number of KOs ?-->
@@ -50,8 +50,8 @@
   <op:define prefix="LOG" ModuleType="10"
              share="../lib/OFM-LogicModule/src/Logikmodul.share.xml"
              template="../lib/OFM-LogicModule/src/Logikmodul.templ.xml"
-             NumChannels="96"
-             KoOffset="1000">
+             NumChannels="32"
+             KoOffset="1200">
     <op:verify File="../lib/OFM-LogicModule/library.json" ModuleVersion="%LOG_VerifyVersion%" />
   </op:define>
   <!-- ~ 300 KOs ?-->
@@ -59,8 +59,8 @@
   <op:define prefix="FCB" ModuleType="3"
              share="../lib/OFM-FunctionBlocks/src/FunctionBlocks.share.xml"
              template="../lib/OFM-FunctionBlocks/src/FunctionBlocks.templ.xml"
-             NumChannels="32"
-             KoOffset="1300">
+             NumChannels="16"
+             KoOffset="1500">
     <op:verify File="../lib/OFM-FunctionBlocks/library.json" ModuleVersion="%FCB_VerifyVersion%" />
   </op:define>
   <!-- 32x10 = 320 KOs ?-->

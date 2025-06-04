@@ -6,15 +6,15 @@
 
   <!-- TODO migrate to regular namespace! -->
   <op:ETS
-          OpenKnxId="0xAC"
-          ApplicationNumber="0x51"
-          ApplicationVersion="0.0"
-          ReplacesVersions=""
+          OpenKnxId="0xAF"
+          ApplicationNumber="192"
+          ApplicationVersion="12.6"
+          ReplacesVersions="12.5 12.4 12.3 12.2 12.1 12.0 11.15 11.14 11.13 11.12"          
           ApplicationRevision="0"
           ProductName="Homematic GW"
           BusCurrent="30"
-          BuildSuffix="-Dev"
-          BuildSuffixText=" (dev, NOT IMPORT!)"
+          BuildSuffix="-Dev-LocalOnly"
+          BuildSuffixText=" (dev, NEVER IMPORT!)"
           OrderNumber="CK-HM-GW--NOT-IMPORT" />
 
   <op:define prefix="BASE" ModuleType="10" share="../lib/OGM-Common/src/Common.share.xml">
@@ -30,39 +30,39 @@
   </op:define>
 
   <op:define prefix="HMG" ModuleType="23"
-    share=   "../lib/OFM-Homematic/src/HomematicModule.share.xml"
-    template="../lib/OFM-Homematic/src/HomematicModule.templ.xml"
-    NumChannels="32"
-    KoSingleOffset="20"
-    KoOffset="100">
+             share=   "../lib/OFM-Homematic/src/HomematicModule.share.xml"
+             template="../lib/OFM-Homematic/src/HomematicModule.templ.xml"
+             NumChannels="32"
+             KoSingleOffset="20"
+             KoOffset="60">
     <op:verify File="../lib/OFM-Homematic/library.json" ModuleVersion="%HMG_VerifyVersion%" />
   </op:define>
   <!-- 32x12 = 384 KOs-->
 
   <op:define prefix="IW" ModuleType="21"
-    share=   "../lib/OFM-InternetWeatherModule/src/InternetWeatherModule.share.xml"
-    template="../lib/OFM-InternetWeatherModule/src/InternetWeatherModule.templ.xml"
-    NumChannels="4"
-    KoSingleOffset="500"
-    KoOffset="510">
+             share=   "../lib/OFM-InternetWeatherModule/src/InternetWeatherModule.share.xml"
+             template="../lib/OFM-InternetWeatherModule/src/InternetWeatherModule.templ.xml"
+             NumChannels="3"
+             KoSingleOffset="800"
+             KoOffset="810">
     <op:verify File="../lib/OFM-InternetWeatherModule/library.json" ModuleVersion="%IW_VerifyVersion%" />
   </op:define>
   <!-- number of KOs ?-->
 
   <op:define prefix="LOG" ModuleType="10"
-    share="../lib/OFM-LogicModule/src/Logikmodul.share.xml"
-    template="../lib/OFM-LogicModule/src/Logikmodul.templ.xml"
-    NumChannels="96"
-    KoOffset="1000">
+             share="../lib/OFM-LogicModule/src/Logikmodul.share.xml"
+             template="../lib/OFM-LogicModule/src/Logikmodul.templ.xml"
+             NumChannels="32"
+             KoOffset="1200">
     <op:verify File="../lib/OFM-LogicModule/library.json" ModuleVersion="%LOG_VerifyVersion%" />
   </op:define>
   <!-- ~ 300 KOs ?-->
 
   <op:define prefix="FCB" ModuleType="3"
-    share="../lib/OFM-FunctionBlocks/src/FunctionBlocks.share.xml"
-    template="../lib/OFM-FunctionBlocks/src/FunctionBlocks.templ.xml"
-    NumChannels="32"
-    KoOffset="1300">
+             share="../lib/OFM-FunctionBlocks/src/FunctionBlocks.share.xml"
+             template="../lib/OFM-FunctionBlocks/src/FunctionBlocks.templ.xml"
+             NumChannels="16"
+             KoOffset="1500">
     <op:verify File="../lib/OFM-FunctionBlocks/library.json" ModuleVersion="%FCB_VerifyVersion%" />
   </op:define>
   <!-- 32x10 = 320 KOs ?-->
