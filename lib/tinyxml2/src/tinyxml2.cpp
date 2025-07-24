@@ -24,7 +24,7 @@ distribution.
 #include "tinyxml2.h"
 
 #include <new>		// yes, this one new style header, is in the Android SDK.
-#if defined(ANDROID_NDK) || defined(__BORLANDC__) || defined(__QNXNTO__)
+#if defined(ANDROID_NDK) || defined(__BORLANDC__) || defined(__QNXNTO__) || defined(__CC_ARM)
 #   include <stddef.h>
 #   include <stdarg.h>
 #else
@@ -529,8 +529,8 @@ const char* XMLUtil::GetCharacterRef(const char* p, char* value, int* length)
 
             const unsigned int digitScaled = mult * digit;
             ucs += digitScaled;
-            mult *= radix;
-
+            mult *= radix;       
+            
             // Security check: could a value exist that is out of range?
             // Easily; limit to the MAX_CODE_POINT, which also allows for a
             // bunch of leading zeroes.
@@ -1120,10 +1120,10 @@ char* XMLNode::ParseDeep( char* p, StrPair* parentEndTag, int* curLineNumPtr )
             // Declarations are only allowed at document level
             //
             // Multiple declarations are allowed but all declarations
-            // must occur before anything else.
+            // must occur before anything else. 
             //
-            // Optimized due to a security test case. If the first node is
-            // a declaration, and the last node is a declaration, then only
+            // Optimized due to a security test case. If the first node is 
+            // a declaration, and the last node is a declaration, then only 
             // declarations have so far been added.
             bool wellLocated = false;
 
