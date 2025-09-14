@@ -28,8 +28,11 @@
 ../OGM-Common/scripts/setup/reusable/Build-Release-Preprocess.ps1 $args[0]
 if (!$?) { exit 1 }
 
-# build firmware for REG1_ETH_V1
-lib/OGM-Common/scripts/setup/reusable/Build-Step.ps1 release_REG1_ETH_V1 firmware-REG1_ETH_V1 uf2
+# build firmware for DEVICE_REG1_ETH
+    #ifdef DEVICE_REG1_ETH
+        #define DEVICE_ID "REG1-Eth"
+        #define DEVICE_NAME "OpenKNX REG1 LAN Gateway"
+lib/OGM-Common/scripts/setup/reusable/Build-Step.ps1 release_REG1_ETH_V1 firmware-OpenKNX-REG1-Eth uf2
 if (!$?) { exit 1 }
 
 # Quick-Fix: Remove unwanted files from release folder:
