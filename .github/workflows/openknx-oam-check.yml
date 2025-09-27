@@ -22,13 +22,18 @@ jobs:
   oam-build:
     runs-on: ubuntu-latest
     env:
-      PRODUCER_VERSION: 3.8.0
-      PRODUCER_URL: https://github.com/OpenKNX/OpenKNXproducer/releases/download/v3.8.0/OpenKNXproducer-3.8.0.zip
-      PRODUCER_CHECKSUM: 34d708df99dafd2cbb8a1b5fc7e31d08a570395f52dcbb37551139d731bf3d3b2682f7d3ab6f57ffea82d45c24838d2a46b5a746e32e02db7284aa4e3e404802
+      PRODUCER_VERSION: 3.11.0
+      PRODUCER_CHECKSUM: eb7f5f5f74525d0b6a865d477bc9c6c109d79c246249975c4ee303d8ccd6d756
+      PRODUCER_URL: https://github.com/OpenKNX/OpenKNXproducer/releases/download/v${PRODUCER_VERSION}/OpenKNXproducer-${PRODUCER_VERSION}.zip
       PRODUCER_FILENAME: OpenKNXproducer-${PRODUCER_VERSION}.zip
 
     name: Build '${{ inputs.target }}' ${{ inputs.restore_branch && 'branch' || 'commit' }}
     steps:
+      - name: Set Derived env-Variables
+        run: |
+          echo "PRODUCER_URL=${PRODUCER_URL}" >> $GITHUB_ENV
+          echo "PRODUCER_FILENAME=${PRODUCER_FILENAME}" >> $GITHUB_ENV
+
       - uses: actions/checkout@v4
 
       - name: Restore Project
@@ -45,14 +50,14 @@ jobs:
         run: |
           mkdir OpenKNXproducer
           cd OpenKNXproducer
-          echo "${PRODUCER_CHECKSUM} *${PRODUCER_FILENAME}" > OpenKNXproducer.checksum
-          wget -q "${PRODUCER_URL}" -O "${PRODUCER_FILENAME}"
-          sha512sum "${PRODUCER_FILENAME}"
-          sha512sum -c OpenKNXproducer.checksum
+          echo "${PRODUCER_CHECKSUM} *${{env.PRODUCER_FILENAME}}" > OpenKNXproducer.checksum
+          wget -q "${{env.PRODUCER_URL}}" -O "${{env.PRODUCER_FILENAME}}"
+          sha256sum "${{env.PRODUCER_FILENAME}}"
+          sha256sum -c OpenKNXproducer.checksum
       - name: Unzip OpenKNXproducer and Make Executable
         run: |
           cd OpenKNXproducer
-          unzip "${PRODUCER_FILENAME}" || test -f tools/Linux/OpenKNXproducer
+          unzip "${{env.PRODUCER_FILENAME}}" || test -f tools/Linux/OpenKNXproducer
           chmod u+x tools/Linux/OpenKNXproducer
       - name: Check OpenKNXproducer
         run: OpenKNXproducer/tools/Linux/OpenKNXproducer version || echo Ignore OpenKNXproducer always returning 1...
@@ -61,7 +66,22 @@ jobs:
         run: cp -av OpenKNXproducer/tools/Linux/OpenKNXproducer /usr/local/bin/OpenKNXproducer
 
       - name: Create knxprod
-        run: OpenKNXproducer create --Debug -h include/knxprod.h src/${{inputs.KNXPROD_PREFIX}}${{ inputs.target != '' && format('-{0}', inputs.target) || '' }}
+        run: |
+          OpenKNXproducer create --Debug -h include/knxprod.h src/${{inputs.KNXPROD_PREFIX}}${{ inputs.target != '' && format('-{0}', inputs.target) || '' }} 2>&1 | tee producer.log
+          exit_code=${PIPESTATUS[0]}
+          if [ $exit_code -ne 0 ]; then
+            # Collect all outputs starting with "-->"
+            error_lines=$(grep -E '^\s*(-->|Unhandled exception\.)' producer.log | grep -Ev -- '--> Skipping creation of src/[^ \.]+\.knxprod due to check errors! <--' | tr '\n' ' // ')
+            if [ -n "$error_lines" ]; then
+              echo "::error:: $error_lines"
+            fi
+            exit $exit_code
+          fi
+
+          warn_lines=$(grep -E '^\s*-->\s*WARN' producer.log | tr '\n' ' // ')
+          if [ -n "$warn_lines" ]; then
+            echo "::warning:: $warn_lines"
+          fi
 
       - name: Install Python
         uses: actions/setup-python@v5
