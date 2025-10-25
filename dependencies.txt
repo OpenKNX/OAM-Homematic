@@ -3,7 +3,7 @@ ee3c00e v1 lib/knx https://github.com/OpenKNX/knx.git
 e0034775 v1 lib/OFM-ConfigTransfer https://github.com/OpenKNX/OFM-ConfigTransfer.git
 ad9b0da v1 lib/OFM-FileTransferModule https://github.com/OpenKNX/OFM-FileTransferModule.git
 7663283 v1 lib/OFM-FunctionBlocks https://github.com/OpenKNX/OFM-FunctionBlocks.git
-b01c067 v1 lib/OFM-Homematic https://github.com/OpenKNX/OFM-Homematic.git
+2654130 v1dev lib/OFM-Homematic https://github.com/OpenKNX/OFM-Homematic.git
 b8a2e40 v1 lib/OFM-InternetWeatherModule https://github.com/OpenKNX/OFM-InternetWeatherModule.git
 ea7c433 v1 lib/OFM-LogicModule https://github.com/OpenKNX/OFM-LogicModule.git
 70804df v1 lib/OFM-Network https://github.com/OpenKNX/OFM-Network.git
