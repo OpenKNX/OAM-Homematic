@@ -3,9 +3,9 @@
 #ifdef NET_ModuleVersion
 #include "NetworkModule.h"
 #endif
-#ifdef ARDUINO_ARCH_RP2040
-#include "UsbExchangeModule.h"
-#endif
+// #ifdef ARDUINO_ARCH_RP2040
+// #include "UsbExchangeModule.h"
+// #endif
 #include "FileTransferModule.h"
 #include "Logic.h"
 #include "InternetWeatherModule.h"
@@ -25,8 +25,7 @@ AutoConnectConfig config;
 
 void setup()
 {
-    const uint8_t firmwareRevision = 0;
-    openknx.init(firmwareRevision);
+    openknx.init(); // use firmware revision from XML
 
 #ifdef NET_ModuleVersion
     openknx.addModule(1, openknxNetwork);
@@ -34,9 +33,9 @@ void setup()
 
     openknx.addModule(2, openknxLogic);
     openknx.addModule(3, openknxHomematicModule);
-#ifdef ARDUINO_ARCH_RP2040
-    openknx.addModule(5, openknxUsbExchangeModule);
-#endif
+// #ifdef ARDUINO_ARCH_RP2040
+//     openknx.addModule(5, openknxUsbExchangeModule);
+// #endif
     openknx.addModule(6, openknxFileTransferModule);
 
     openknx.addModule(7, openknxInternetWeatherModule);

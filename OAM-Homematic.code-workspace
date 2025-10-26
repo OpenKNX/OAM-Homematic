@@ -16,6 +16,12 @@
 			"path": "../OFM-ConfigTransfer"
 		},
 		{
+			"path": "../OFM-UsbExchange"
+		},
+		{
+			"path": "../OGM-Common"
+		},
+		{
 			"path": "../knx"
 		}
 	],
