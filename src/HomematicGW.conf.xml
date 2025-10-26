@@ -20,4 +20,8 @@
 
     <op:config name="%LOG_NumChannelsDefault%" value="1" />
     <op:config name="%LOG_EnableSave%" value="1" />
+
+    <!-- hide module sync buttons, as there is no hardware dependent feature in this application -->
+    <op:config name="%BASE_ShowSyncModulesButton%"        value="0" />
+
 </KNX>
