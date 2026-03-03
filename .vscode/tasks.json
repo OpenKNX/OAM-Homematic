@@ -57,21 +57,21 @@
             "problemMatcher": []
         },
         {
-            "label": "Develop: Adafruit_Feather_ESP32_V2",
+            "label": "Develop: DEVICE_REG1_LAN_TP_Base (ESP32)",
             "type": "shell",
             "command": "scripts/OpenKNX-Build.ps1",
             "args": [
-                "develop_Adafruit_Feather_ESP32_V2"
+                "develop_DEVICE_REG1_LAN_TP_Base"
             ],
             "group": "build",
             "problemMatcher": []
         },
         {
-            "label": "Develop: Adafruit_Feather_ESP32_V2 (USB)",
+            "label": "Develop: DEVICE_REG1_LAN_TP_Base (ESP32) (USB)",
             "type": "shell",
             "command": "scripts/OpenKNX-Build.ps1",
             "args": [
-                "develop_Adafruit_Feather_ESP32_V2_USB",
+                "develop_DEVICE_REG1_LAN_TP_Base__USB",
                 "upload"
             ],
             "group": "build",
