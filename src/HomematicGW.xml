@@ -8,8 +8,8 @@
   <op:ETS
           OpenKnxId="0xAF"
           ApplicationNumber="192"
-          ApplicationVersion="13.6.0"
-          ReplacesVersions="13.5 13.4 13.3 13.2 13.1 13.0 12.15 12.14 12.13 12.12 12.7 12.6 12.5 12.4 12.3 12.2 12.1 12.0 11.15 11.14 11.13 11.12"
+          ApplicationVersion="13.7.0"
+          ReplacesVersions="13.6 13.5 13.4 13.3 13.2 13.1 13.0 12.15 12.14 12.13 12.12 12.7 12.6 12.5 12.4 12.3 12.2 12.1 12.0 11.15 11.14 11.13 11.12"
           ApplicationRevision="0"
           ProductName="Homematic GW"
           BusCurrent="30"

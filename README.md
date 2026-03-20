@@ -2,7 +2,7 @@
 
 KNX-Anbindung für Homematic-Thermostate über CCU(2) mit Konfiguration über die ETS.
 
-Von Cornelius Köpp 2024-2025
+Von Cornelius Köpp 2024-2026
 
 
 # Beschreibung

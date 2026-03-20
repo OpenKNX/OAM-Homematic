@@ -1,6 +1,6 @@
 Open #   OpenKNX: OAM-Homematic ***ALPHA***
 +----+   https://github.com/OpenKNX/OAM-Homematic
-# KNX    Cornelius Köpp (OpenKNX) 2024--2025
+# KNX    Cornelius Köpp (OpenKNX) 2024--2026
 
 Homematic-CCU-Gateway für KNX, konfigurierbar über ETS
 
@@ -19,7 +19,7 @@ Dieses Release kann unter Windows 10/11 folgendermaßen installiert werden:
 Es werden 2 Upload-Methoden unterstützt:
 
 USB-Upload (bei neuer Hardware steht nur diese Methode zur Verfügung):
-    - Hardware an den USB-Port stecken (Hinweis: Es darf nur ein OpneKNX-Device am USB stecken),
+    - Hardware an den USB-Port stecken (Hinweis: Es darf nur ein OpenKNX-Device am USB stecken),
     - rechte Maustaste auf "USB-Upload-Firmware-xxx.ps1"
     - "Mit PowerShell ausführen" wählen
         (jetzt wird die Firmware auf die Hardware geladen)

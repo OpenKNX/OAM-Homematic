@@ -35,6 +35,10 @@ if (!$?) { exit 1 }
 lib/OGM-Common/scripts/setup/reusable/Build-Step.ps1 release_REG1_ETH_V1 firmware-OpenKNX-REG1-Eth uf2
 if (!$?) { exit 1 }
 
+lib/OGM-Common/scripts/setup/reusable/Build-Step.ps1 release_REG1_LAN_TP_Base firmware-OpenKNX-REG1-LAN-TP-Base esp32
+if (!$?) { exit 1 }
+
+
 # Quick-Fix: Remove unwanted files from release folder:
 Remove-Item -Path "release/data/Upload-Firmware-Generic-SAMD.ps1" -ErrorAction SilentlyContinue -Force
 
