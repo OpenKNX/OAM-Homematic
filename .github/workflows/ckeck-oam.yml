@@ -1,5 +1,3 @@
-name: check-oam
-run-name: Check OAM
 
 on: [push]
 
@@ -9,8 +7,8 @@ jobs:
 
     uses: openknx/actions/.github/workflows/openknx-oam-check.yml@v0
     with:
-      oam: OAM-Homematic
-      oam_ref: ${{ github.ref_name }}
+      # oam: OAM-Homematic
+      # oam_ref: ${{ github.ref_name }}
       restore_branch: false
       # knxprod_xml: Homematic-Release
       target: Release
