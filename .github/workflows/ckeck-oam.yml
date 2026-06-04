@@ -1,0 +1,17 @@
+name: check-oam
+run-name: Check OAM
+
+on: [push]
+
+jobs:
+  oam-build-check:
+    name: Check OAM
+
+    uses: openknx/actions/.github/workflows/openknx-oam-check.yml@v0
+    with:
+      oam: OAM-Homematic
+      oam_ref: v1dev
+      restore_branch: false
+      # knxprod_xml: Homematic-Release
+      target: Release
+      KNXPROD_PREFIX: HomematicGW
