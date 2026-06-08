@@ -7,7 +7,7 @@ jobs:
 
     uses: openknx/actions/.github/workflows/openknx-oam-check.yml@v0
     with:
-      # oam: OAM-Homematic
+      # oam: use this repo -> OAM-Homematic
       # oam_ref: ${{ github.ref_name }}
       restore_branch: false
       # knxprod_xml: Homematic-Release
